@@ -4,7 +4,7 @@ import jwt
 
 app = Flask(__name__)
 
-SECRET_KEY = "your-secret-key"
+SECRET_KEY = "some-secret-key"
 
 @app.route('/api', methods=['GET'])
 def api():

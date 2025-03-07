@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 SECRET_KEY = "some-secret-key"
 
-@app.route('/authorize/api', methods=['POST'])
+@app.route('/authorize/api', methods=['GET'])
 def authorize():
-    print("Received POST /authrize request!")
+    print("Received GET /authrize request!")
     # Simple authentication logic (replace with your actual logic)
     if 'Authorization' in request.headers and request.headers['Authorization'] == 'Bearer valid-token':
         # Generate JWT

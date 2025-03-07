@@ -28,6 +28,5 @@ spec:
             path_prefix: "/authorize"
             server_uri:
               uri: auth-service.default.svc.cluster.local:5002
-              cluster: outbound|5002||auth-service.default.svc.cluster.local
               timeout: 0.5s
               
