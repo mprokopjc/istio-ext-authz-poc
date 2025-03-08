@@ -12,6 +12,16 @@ spec:
   - applyTo: HTTP_FILTER
     match:
       context: GATEWAY
+      # scope ExtAuthz filter just to specific endpoints
+      routeConfiguration:
+        vhost:
+          route:
+            match:
+              prefix: "/api/protected"
+        ## You can scope filter also to specific VirtualService, example:
+        # virtualService:
+        #   name: api-virtualservice
+        #   namespace: default
       listener:
         filterChain:
           filter:
