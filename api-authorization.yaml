@@ -12,7 +12,6 @@ spec:
     jwksUri: "https://raw.githubusercontent.com/istio/istio/release-1.19/security/tools/jwt/samples/jwks.json" # dummy jwks
     audiences:
     - "api-service"
-
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -32,3 +31,17 @@ spec:
     - key: request.auth.claims[scope]
       values: ["protected:read"]
 ---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: public-endpoint-policy
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: api-service
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        paths: ["/api/public"]
