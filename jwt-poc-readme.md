@@ -23,11 +23,14 @@ kubectl apply -f api-authorization.yaml
 
 ## Test it out
 
-Get https://raw.githubusercontent.com/istio/istio/release-1.25/security/tools/jwt/samples/gen-jwt.py and then use it to send test request
+See https://github.com/istio/istio/tree/master/security/tools/jwt/samples and get `gen-jwt.py` and `key.pem` to generate a valid JWT using:
 
 ```
-# get valid JWT (signed by Istio demo private key - so we don't need custom jwks)
 python gen-jwt.py --issuer testing@secure.istio.io --audience api-service --scope "protected:read"
-# use JWT to send request to protected endpoint
+```
+
+Then use generate JWT to call protecte endpoint. (We are using Istio demo JWKS so we don't have to configure our own in this POC.)
+
+```
 curl -H "Authorization: Bearer <your-copied-jwt>" http://localhost:80/api/protected
 ```
