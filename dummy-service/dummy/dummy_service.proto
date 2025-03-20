@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package dummy;
+
+option go_package = "github.com/mprokopjc/dummy-service/dummy;dummy";
+
+import "google/api/annotations.proto";
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string message = 1;
+}
+
+service DummyService {
+  rpc GetMessage(Request) returns (Response) {
+    option (google.api.http) = {
+      get: "/v1/messages/{name}"
+    };
+  }
+}

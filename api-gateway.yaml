@@ -32,3 +32,22 @@ spec:
         host: api-service
         port:
           number: 8080
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: dummy-virtualservice
+spec:
+  hosts:
+  - "dummy.example.com"
+  gateways:
+  - api-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /v1/messages/
+    route:
+    - destination:
+        host: dummy-service
+        port:
+          number: 50051
