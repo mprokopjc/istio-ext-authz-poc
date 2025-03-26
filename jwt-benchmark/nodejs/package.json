@@ -1,0 +1,28 @@
+{
+    "name": "jwt-benchmark-api",
+    "version": "1.0.0",
+    "description": "Benchmark JWT signing performance between jose and fast-jwt using Fastify",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "node --watch server.js"
+    },
+    "keywords": [
+      "jwt",
+      "benchmark",
+      "fastify",
+      "jose",
+      "fast-jwt",
+      "performance"
+    ],
+    "author": "Your Name",
+    "license": "ISC",
+    "dependencies": {
+      "fast-jwt": "^4.0.0",
+      "fastify": "^4.26.2",
+      "jose": "^5.2.4"
+    },
+    "engines": {
+      "node": ">=20.0.0"
+    }
+  }
